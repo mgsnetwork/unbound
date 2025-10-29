@@ -1,0 +1,160 @@
+##############################################
+# Microsoft Whitelist for Unbound DNS
+# -------------------------------------------
+# Version: 2025-10-26
+# Type: Intermediate grouped-by-service
+# Format: Unbound configuration file
+#
+# Description:
+# This file configures Unbound to *allow* queries
+# for key Microsoft domains by marking them as
+# "transparent" zones — meaning Unbound will
+# recursively resolve them normally.
+#
+# Usage:
+# 1. Save this file as:
+#      /etc/unbound/unbound.conf.d/whitelist-microsoft.conf
+# 2. Ensure your main unbound.conf includes:
+#      include: "/etc/unbound/unbound.conf.d/*.conf"
+# 3. Restart Unbound:
+#      sudo systemctl restart unbound
+#
+# Optional tip:
+# If you’re using a blocking setup (e.g., with
+# "redirect" or "static" zones), these transparent
+# zones ensure that Microsoft services are *not*
+# blocked.
+##############################################
+
+# -------------------------
+# General / Core Microsoft
+# -------------------------
+local-zone: "microsoft.com" transparent
+local-zone: "live.com" transparent
+local-zone: "msn.com" transparent
+local-zone: "bing.com" transparent
+local-zone: "login.microsoftonline.com" transparent
+local-zone: "login.live.com" transparent
+local-zone: "account.microsoft.com" transparent
+local-zone: "account.live.com" transparent
+local-zone: "graph.microsoft.com" transparent
+local-zone: "msftconnecttest.com" transparent
+local-zone: "msftncsi.com" transparent
+local-zone: "time.windows.com" transparent
+local-zone: "crl.microsoft.com" transparent
+
+# -------------------------
+# Office & Office 365
+# -------------------------
+local-zone: "office.com" transparent
+local-zone: "office.net" transparent
+local-zone: "office365.com" transparent
+local-zone: "officeapps.live.com" transparent
+local-zone: "cdn.office.net" transparent
+local-zone: "res.cdn.office.net" transparent
+local-zone: "forms.office.com" transparent
+local-zone: "outlook.office.com" transparent
+local-zone: "outlook.office365.com" transparent
+local-zone: "substrate.office.com" transparent
+local-zone: "officeclient.microsoft.com" transparent
+local-zone: "odc.officeapps.live.com" transparent
+
+# -------------------------
+# OneDrive / Storage
+# -------------------------
+local-zone: "onedrive.com" transparent
+local-zone: "onedrive.live.com" transparent
+local-zone: "1drv.ms" transparent
+local-zone: "files.1drv.com" transparent
+local-zone: "storage.live.com" transparent
+local-zone: "storage.msn.com" transparent
+local-zone: "blob.core.windows.net" transparent
+local-zone: "officehomeblobs.blob.core.windows.net" transparent
+
+# -------------------------
+# Windows Update & OS services
+# -------------------------
+local-zone: "windowsupdate.com" transparent
+local-zone: "download.windowsupdate.com" transparent
+local-zone: "au.download.windowsupdate.com" transparent
+local-zone: "ds.download.windowsupdate.com" transparent
+local-zone: "ctldl.windowsupdate.com" transparent
+local-zone: "update.microsoft.com" transparent
+local-zone: "slscr.update.microsoft.com" transparent
+local-zone: "displaycatalog.mp.microsoft.com" transparent
+local-zone: "delivery.mp.microsoft.com" transparent
+local-zone: "dl.delivery.mp.microsoft.com" transparent
+local-zone: "tsfe.trafficshaping.dsp.mp.microsoft.com" transparent
+local-zone: "wcpstatic.microsoft.com" transparent
+
+# -------------------------
+# Xbox & Gaming
+# -------------------------
+local-zone: "xbox.com" transparent
+local-zone: "xboxlive.com" transparent
+local-zone: "xboxservices.com" transparent
+local-zone: "store.xbox.com" transparent
+local-zone: "marketplace.xbox.com" transparent
+local-zone: "live.xbox.com" transparent
+local-zone: "xblmessaging.xboxlive.com" transparent
+local-zone: "xsts.auth.xboxlive.com" transparent
+local-zone: "presence.teams.live.com" transparent
+
+# -------------------------
+# Azure & Cloud / CDNs
+# -------------------------
+local-zone: "blob.core.windows.net" transparent
+local-zone: "azureedge.net" transparent
+local-zone: "azurefd.net" transparent
+local-zone: "azurewebsites.net" transparent
+local-zone: "msecnd.net" transparent
+local-zone: "akamaized.net" transparent
+local-zone: "edge.microsoft.com" transparent
+local-zone: "edge.microsoftapp.net" transparent
+
+# -------------------------
+# Authentication, Tokens & Identity
+# -------------------------
+local-zone: "msauth.net" transparent
+local-zone: "msftauth.net" transparent
+local-zone: "acctcdn.msauth.net" transparent
+local-zone: "logincdn.msauth.net" transparent
+local-zone: "oauth.live.com" transparent
+
+# -------------------------
+# Teams, Skype & Collaboration
+# -------------------------
+local-zone: "teams.microsoft.com" transparent
+local-zone: "teams.live.com" transparent
+local-zone: "teams.events.data.microsoft.com" transparent
+local-zone: "api.teams.skype.com" transparent
+
+# -------------------------
+# Developer & DevOps (Visual Studio, .NET, APIs)
+# -------------------------
+local-zone: "visualstudio.com" transparent
+local-zone: "visualstudio.microsoft.com" transparent
+local-zone: "vscode.download.prss.microsoft.com" transparent
+local-zone: "vsassets.io" transparent
+local-zone: "gallery.vsassets.io" transparent
+local-zone: "dotnet.microsoft.com" transparent
+local-zone: "api.appcenter.ms" transparent
+local-zone: "dc.services.visualstudio.com" transparent
+
+# -------------------------
+# Telemetry, Diagnostics & Services
+# -------------------------
+local-zone: "vortex.data.microsoft.com" transparent
+local-zone: "aria.microsoft.com" transparent
+local-zone: "browser.events.data.microsoft.com" transparent
+local-zone: "self.events.data.microsoft.com" transparent
+local-zone: "server.events.data.microsoft.com" transparent
+
+# -------------------------
+# Misc / Common CDNs & helpers
+# -------------------------
+local-zone: "cdn.winget.microsoft.com" transparent
+local-zone: "cdn.forms.office.net" transparent
+local-zone: "akamaized.net" transparent
+local-zone: "fastly.net" transparent
+local-zone: "msecnd.net" transparent
